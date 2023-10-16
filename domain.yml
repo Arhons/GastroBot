@@ -1,0 +1,29 @@
+version: "3.1"
+intents:
+  - greet
+  - goodbye
+  - book_table
+  - order_food
+  - get_menu
+  - get_special_offers
+  - get_order_status
+
+actions:
+  - action_book_table
+  - action_order_food
+  - action_get_menu
+  - action_get_special_offers
+  - action_get_order_status
+
+responses:
+  utter_greet:
+  - text: "Привет! Чем я могу помочь?"
+  
+  utter_goodbye:
+  - text: "До свидания! Хорошего дня!"
+  
+  utter_ask_order_id:
+  - text: "Пожалуйста, укажите номер вашего заказа."
+  
+  utter_default:
+  - text: "Извините, я не могу понять ваш запрос. Пожалуйста, повторите еще раз."

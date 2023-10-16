@@ -1,0 +1,26 @@
+version: "3.1"
+stories:
+- story: Заказ столика
+  steps:
+  - intent: book_table
+  - action: action_book_table
+
+- story: Заказ еды с доставкой
+  steps:
+  - intent: order_food
+  - action: action_order_food
+
+- story: Вызов меню
+  steps:
+  - intent: get_menu
+  - action: action_get_menu
+
+- story: Уведомление о статусе заказа и времени доставки
+  steps:
+  - intent: get_order_status
+  - action: action_get_order_status
+
+- story: Специальные предложения
+  steps:
+  - intent: get_special_offers
+  - action: action_get_special_offers
