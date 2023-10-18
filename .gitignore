@@ -121,3 +121,5 @@ rasa-x-details
 
 # scripts
 read_db.py
+
+*.db

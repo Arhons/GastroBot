@@ -8,6 +8,24 @@ intents:
   - get_special_offers
   - get_order_status
 
+entities:
+  - number
+  - numbers_list
+
+slots:                          
+  number:         
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: number 
+  numbers_list:         
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: numbers_list 
+
 actions:
   - action_book_table
   - action_order_food

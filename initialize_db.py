@@ -1,43 +1,60 @@
 import sqlite3
+from datetime import datetime, timedelta
+
 conn = sqlite3.connect('example.db')
-
 c = conn.cursor()
-
-# Create table
-# c.execute('''CREATE TABLE orders
-#              (text, trans text, symbol text, qty real, price real)''')
-
-
-# Insert a row of data
-# c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
 
 # EXISTING ORDERS
 # Create table
 c.execute('''CREATE TABLE orders
-             (order_date, order_number, order_email, color, size, status)''')
+             (id INTEGER PRIMARY KEY, order_date, delivery_time_min, status, client_phone)''')
 
 # data to be added
-purchases = [('2006-01-05',123456,'example@rasa.com','blue', 9, 'shipped'),
-             ('2021-01-05',123457,'me@rasa.com','black', 10, 'order pending'),
-             ('2021-01-05',123458,'me@gmail.com','gray', 11, 'delivered'),
-            ]
+orders = [
+    (1, datetime.now() - timedelta(minutes=40), 60, 'В обработке', '1111'),
+    (2, datetime.now() - timedelta(minutes=50), 50, 'Доставлен', '2222'),
+    (3, datetime.now() - timedelta(minutes=20), 40, 'Готовится', '3333'),
+    ]
 
 # add data
-c.executemany('INSERT INTO orders VALUES (?,?,?,?,?,?)', purchases)
+c.executemany('INSERT INTO orders VALUES (?,?,?,?,?)', orders)
+
 
 # AVAILABLE INVENTORY
 # Create table
 c.execute('''CREATE TABLE menu
-             (name, price)''')
+             (id INTEGER PRIMARY KEY, name, price)''')
 
 # data to be added
-menu = [('Пицца Маргарита', 550),
-        ('Спагетти Болоньезе', 450),
-        ('Салат Цезарь', 450)
-        ]
+menu = [
+    (1, 'Пицца Маргарита', 550),
+    (2, 'Спагетти Болоньезе', 450),
+    (3, 'Салат Цезарь', 450),
+    (4, 'Пицца 4 сыра', 200),
+    (5, 'Карбонара', 300),
+    (6, 'Крабовый салат', 450),
+    (7, 'Огурцы', 1000),
+    (8, 'Помидоры', 500),
+    (9, 'Суп Куриный', 250),
+    ]
 
 # add data
-c.executemany('INSERT INTO menu VALUES (?,?)', menu)
+c.executemany('INSERT INTO menu VALUES (?,?,?)', menu)
+
+
+# SPECIAL OFFERS
+# Create table
+c.execute('''CREATE TABLE special_offers
+             (id INTEGER PRIMARY KEY, text)''')
+
+# data to be added
+special_offers = [
+    (1, 'Бесплатная доставка при заказе от $20'),
+    (2, '10% скидка на все пиццы в понедельник')
+    ]
+
+# add data
+c.executemany('INSERT INTO special_offers VALUES (?,?)', special_offers)
 
 
 # Save (commit) the changes
