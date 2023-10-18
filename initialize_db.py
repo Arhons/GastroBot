@@ -56,6 +56,15 @@ special_offers = [
 # add data
 c.executemany('INSERT INTO special_offers VALUES (?,?)', special_offers)
 
+c.execute('''CREATE TABLE tables (id INTEGER PRIMARY KEY, text)''')
+
+tables = [
+    (1, 'Забронирован'),
+    (2, 'Забронирован'),
+    (3, 'Свободен')
+]
+
+c.executemany('INSERT INTO tables VALUES (?,?)', tables)
 
 # Save (commit) the changes
 conn.commit()

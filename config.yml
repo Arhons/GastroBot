@@ -25,7 +25,7 @@ pipeline:
 policies:
   - name: MemoizationPolicy
   - name: TEDPolicy
-    max_history: 5
+    max_history: 8
     epochs: 100
   - name: RulePolicy
     core_fallback_threshold: 0.4
