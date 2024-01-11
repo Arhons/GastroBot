@@ -30,3 +30,4 @@ stories:
   steps:
   - intent: get_special_offers
   - action: action_get_special_offers
+

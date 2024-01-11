@@ -15,4 +15,4 @@ rules:
     steps:
       - intent: goodbye
       - action: utter_goodbye
-  
+

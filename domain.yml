@@ -61,3 +61,4 @@ responses:
 
   utter_ask_phone_number:
   - text: "Укажите номер телефона, на него Вам позвонит оператор"
+
